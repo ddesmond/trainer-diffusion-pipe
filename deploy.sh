@@ -18,7 +18,7 @@ echo "Setting up YUM YUM !"
 cd /opt
 echo "Run: Clone repo"
 git clone --depth 1 https://github.com/ddesmond/trainer-diffusion-pipe.git
-cd /opt/trainer-diffusion-pipe.git
+cd /opt/trainer-diffusion-pipe
 git pull
 
 source structure.sh
