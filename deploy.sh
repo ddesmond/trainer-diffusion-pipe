@@ -22,6 +22,7 @@ git pull
 source structure.sh
 source setup.sh
 
+cp -r configs/ /opt/workspace/configs
 
 cp gradio_app.py /opt/diffusion-pipe/gradio_app.py
 cd /opt/diffusion-pipe
