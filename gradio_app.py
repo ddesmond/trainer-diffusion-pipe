@@ -1366,7 +1366,7 @@ def run_download_script(model_name, log_box, hf_username=None, hf_token=None):
 
     # Use the script filename from the config
     script_path = os.path.join(DOWNLOAD_SCRIPTS_DIR,
-                               config.get('script_name', f"download_{model_type.replace('-', '_')}.sh"))
+                               config.get('script_name', f"{model_type.replace('-', '_')}.sh"))
 
     if not os.path.exists(script_path):
         return log_box + f"\nError: Download script not found at {script_path}", False
