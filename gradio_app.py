@@ -1283,7 +1283,7 @@ def get_model_types():
     configs = parse_model_configs()
     if not configs:
         print("Warning: No model configurations found. Using default model types.")
-        default_types = ["hunyuan-video", "flux", "ltx-video", "wan-1.3b", "wan-14b", "wan-i2v", "hidream"]
+        default_types = ["wan-1.3b", "wan-14b", "wan-i2v"]
         return sorted(default_types)
     return sorted(list(configs.keys()))
 
@@ -1360,6 +1360,7 @@ def check_model_exists(model_name):
     # Check each path in the config
     for key, path in config.items():
         if key.endswith('_path') and path:
+            print(path)
             if not os.path.exists(path):
                 return False
     return True
