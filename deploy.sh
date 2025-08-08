@@ -11,6 +11,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PIP_ROOT_USER_ACTION=ignore
 
+apt update -y && apt install -y aria2
+
 echo "----------------------------------"
 echo "Setting up YUM YUM !"
 cd /opt
@@ -20,6 +22,8 @@ cd /opt/trainer-diffusion-pipe.git
 git pull
 
 source structure.sh
+source wan_download.sh &
+
 source setup.sh
 
 cp -r configs/ /opt/workspace/configs
