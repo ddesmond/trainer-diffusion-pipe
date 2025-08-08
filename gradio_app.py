@@ -293,6 +293,7 @@ def create_training_config(
 
     training_file = f"training_config.toml"
     training_path_full = os.path.join(config_dir, training_file)
+    print("FULL CONFIG TRAINING PATH", training_path_full)
     with open(training_path_full, "w") as f:
         toml.dump(training_config, f)
     return (training_path_full, training_config)
