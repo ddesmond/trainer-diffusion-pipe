@@ -1517,7 +1517,7 @@ def toggle_hf_fields_visibility(model_name):
 
 # Gradio Interface
 with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
-    gr.Markdown("# LoRA Training Interface for Hunyuan Video")
+    gr.Markdown("# LoRA Training Interface for WAN Video")
 
     gr.Markdown("### Step 1: Dataset Management\nChoose to create a new dataset or select an existing one.")
 
@@ -1652,7 +1652,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
             config_values = extract_config_values(config)
 
             # Get model type from config
-            model_type = config.get("model", {}).get("type", "HunyuanVideo")
+            model_type = config.get("model", {}).get("type", "wan-14b")
 
             # Update config and output paths
             config_path = os.path.join(CONFIG_DIR, selected_dataset)
@@ -1668,7 +1668,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
                 config_values,  # Update training parameters
                 model_type  # Update model type
             )
-        return "", "", "", "No dataset selected.", [], gr.update(value=""), {}, "HunyuanVideo"  # Default model type
+        return "", "", "", "No dataset selected.", [], gr.update(value=""), {}, "wan-14b"  # Default model type
 
 
     with gr.Row():
