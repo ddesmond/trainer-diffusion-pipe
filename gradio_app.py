@@ -659,16 +659,11 @@ def train_model(model_name, model_type, dataset_path, config_dir, output_dir, ep
             max_llama3_sequence_length=max_llama3_sequence_length
         )
 
-        venv_activate_path = "/opt/workspace/diffusion-pipe/diffpipe_venv/bin/activate"
         num_gpus = os.getenv("NUM_GPUS", "1")
-
-        if not os.path.isfile(venv_activate_path):
-            return "Error: venv activation script not found", None
 
         resume_checkpoint = "--resume_from_checkpoint" if resume_from_checkpoint else ""
 
         cmd = (
-            f"bash -c 'source {venv_activate_path} && "
             f"NCCL_P2P_DISABLE=1 NCCL_IB_DISABLE=1 {'NCCL_SHM_DISABLE=1' if int(num_gpus) > 1 else ''} deepspeed --num_gpus={num_gpus} "
             f"train.py --deepspeed --config {training_config_path} {resume_checkpoint}'"
         )
