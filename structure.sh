@@ -11,3 +11,4 @@ mkdir -p ./workspace \
 && mkdir -p ./workspace/configs \
 && mkdir -p ./scripts/download_training_transformers
 
+cd /
