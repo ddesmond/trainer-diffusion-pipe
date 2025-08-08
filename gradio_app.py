@@ -1428,7 +1428,7 @@ def handle_download_click(model_name, log_box, hf_token, hf_username):
         try:
             # Run the download script and capture output
             script_path = os.path.join(DOWNLOAD_SCRIPTS_DIR,
-                                       config.get('script_name', f"download_{model_name.replace('-', '_')}.sh"))
+                                       config.get('script_name', f"{model_name.replace('-', '_')}.sh"))
 
             # Set environment variable if token is provided
             env = os.environ.copy()
