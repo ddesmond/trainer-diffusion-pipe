@@ -31,7 +31,7 @@ source ./structure.sh
 ls -la /opt/
 
 
-
+cd /opt/trainer-diffusion-pipe
 source ./wan_download.sh &
 cd /opt/trainer-diffusion-pipe
 source ./setup.sh
