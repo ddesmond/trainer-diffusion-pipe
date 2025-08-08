@@ -1730,7 +1730,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
         with gr.Column():
             model_name = gr.Dropdown(
                 choices=get_model_types(),
-                value="HunyuanVideo",
+                value="wan-14b",
                 label="Select Model",
                 interactive=True
             )
@@ -2775,7 +2775,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Gradio Interface for LoRA Training on Hunyuan Video")
+    parser = argparse.ArgumentParser(description="Gradio Interface for LoRA Training on WAN Video")
 
     parser.add_argument("--local", action="store_true", help="Run the interface locally")
 
