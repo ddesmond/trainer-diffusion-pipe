@@ -759,17 +759,6 @@ def upload_dataset(files, current_dataset, action, dataset_name=None):
             fp = os.path.join(root, f)
             total_size += os.path.getsize(fp)
 
-    # Calculate the size of the new files
-    new_files_size = 0
-    for file in files:
-        if IS_RUNPOD:
-            new_files_size += os.path.getsize(file.name)
-
-    # Check if adding these files would exceed the limit
-    if IS_RUNPOD and (total_size + new_files_size) > MAX_UPLOAD_SIZE_MB * 1024 * 1024:
-        return current_dataset, f"Upload would exceed the {MAX_UPLOAD_SIZE_MB}MB limit on Runpod. Please upload smaller files or finalize the dataset.", show_media(
-            current_dataset)
-
     uploaded_files = []
 
     for file in files:
