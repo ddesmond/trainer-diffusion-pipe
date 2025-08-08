@@ -21,8 +21,8 @@ git clone --depth 1 https://github.com/ddesmond/trainer-diffusion-pipe.git
 cd /opt/trainer-diffusion-pipe
 git pull
 
-source structure.sh
-source wan_download.sh &
+source ./structure.sh
+source ./wan_download.sh &
 
 source setup.sh
 
