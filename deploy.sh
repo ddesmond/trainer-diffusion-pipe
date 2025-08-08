@@ -14,6 +14,7 @@ export PIP_ROOT_USER_ACTION=ignore
 apt update -y && apt install -y aria2
 
 echo "Run: Clone repo"
+cd /opt
 git clone --depth 1 https://github.com/ddesmond/trainer-diffusion-pipe.git
 cd /opt/trainer-diffusion-pipe
 git pull
