@@ -27,7 +27,7 @@ OUTPUT_DIR = COMFYUI_PATH / "models/loras"
 CONFIG_DIR = BASE_PATH / "configs"
 
 # Download script paths
-DOWNLOAD_SCRIPTS_DIR = SCRIPT_PATH / "download_training_transformers"
+DOWNLOAD_SCRIPTS_DIR = "/opt/trainer-diffusion-pipe/downloads"
 
 # Maximum number of media to display in the gallery
 MAX_MEDIA = 50
