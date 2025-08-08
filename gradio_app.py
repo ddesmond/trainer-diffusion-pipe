@@ -1272,7 +1272,7 @@ def get_model_types():
     configs = parse_model_configs()
     if not configs:
         print("Warning: No model configurations found. Using default model types.")
-        default_types = ["wan-1.3b", "wan-14b", "wan-i2v"]
+        default_types = ["wan-1.3b", "Wan2.1-T2V-14B", "wan-i2v"]
         return sorted(default_types)
     return sorted(list(configs.keys()))
 
@@ -1641,7 +1641,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
             config_values = extract_config_values(config)
 
             # Get model type from config
-            model_type = config.get("model", {}).get("type", "wan-14b")
+            model_type = config.get("model", {}).get("type", "Wan2.1-T2V-14B")
 
             # Update config and output paths
             config_path = os.path.join(CONFIG_DIR, selected_dataset)
@@ -1657,7 +1657,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
                 config_values,  # Update training parameters
                 model_type  # Update model type
             )
-        return "", "", "", "No dataset selected.", [], gr.update(value=""), {}, "wan-14b"  # Default model type
+        return "", "", "", "No dataset selected.", [], gr.update(value=""), {}, "Wan2.1-T2V-14B"  # Default model type
 
 
     with gr.Row():
@@ -1719,7 +1719,7 @@ with gr.Blocks(theme=theme, css=custom_log_box_css) as demo:
         with gr.Column():
             model_name = gr.Dropdown(
                 choices=get_model_types(),
-                value="wan-14b",
+                value="Wan2.1-T2V-14B",
                 label="Select Model",
                 interactive=True
             )
