@@ -89,7 +89,14 @@ else
     TORCH_INDEX_URL="https://download.pytorch.org/whl/cu128"
 fi
 uv pip install torch torchvision torchaudio --index-url $TORCH_INDEX_URL --system
-uv pip install flash_attn --system
+
+wget -c https://huggingface.co/TheArtOfficialTrainer/container_whls/resolve/main/flash_attn-2.7.4.post1-cp312-cp312-linux_x86_64.whl
+uv pip install flash_attn-2.7.4.post1-cp312-cp312-linux_x86_64.whl --system
+
+sed -i '/^torch$/d' requirements.txt
+sed -i '/^torchaudio$/d' requirements.txt
+sed -i '/^torchvision$/d' requirements.txt
+sed -i '/^flash-attn==2.8.1$/d' requirements.txt
 
 uv pip install -r requirements.txt --system
 uv pip install gradio toml --system
