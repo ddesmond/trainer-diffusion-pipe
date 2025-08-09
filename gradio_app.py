@@ -28,6 +28,7 @@ CONFIG_DIR = BASE_PATH / "configs"
 
 # Download script paths
 DOWNLOAD_SCRIPTS_DIR = "/opt/trainer-diffusion-pipe/downloads"
+RUN_TRAIN_LOCATION = "/opt/diffusion-pipe"
 
 # Maximum number of media to display in the gallery
 MAX_MEDIA = 50
@@ -743,7 +744,7 @@ def train_model(
             "Training cmd:"
             f"NCCL_P2P_DISABLE=1 NCCL_IB_DISABLE=1 {'NCCL_SHM_DISABLE=1' if int(num_gpus) > 1 else ''}"
             f"deepspeed --num_gpus={num_gpus} "
-            f"train.py --deepspeed --config {training_config_path} {resume_checkpoint}"
+            f"{RUN_TRAIN_LOCATION}/train.py --deepspeed --config {training_config_path} {resume_checkpoint}"
         )
         print(cmd)
         # --regenerate_cache
