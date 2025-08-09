@@ -740,8 +740,10 @@ def train_model(
         resume_checkpoint = "--resume_from_checkpoint" if resume_from_checkpoint else ""
 
         cmd = (
-            f"NCCL_P2P_DISABLE=1 NCCL_IB_DISABLE=1 {'NCCL_SHM_DISABLE=1' if int(num_gpus) > 1 else ''} deepspeed --num_gpus={num_gpus} "
-            f"train.py --deepspeed --config {training_config_path} {resume_checkpoint}'"
+            "Training cmd:"
+            f"NCCL_P2P_DISABLE=1 NCCL_IB_DISABLE=1 {'NCCL_SHM_DISABLE=1' if int(num_gpus) > 1 else ''}"
+            f"deepspeed --num_gpus={num_gpus} "
+            f"train.py --deepspeed --config {training_config_path} {resume_checkpoint}"
         )
         print(cmd)
         # --regenerate_cache
