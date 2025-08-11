@@ -62,11 +62,6 @@ source $HOME/.local/bin/env
 uv pip install packaging wheel setuptools --system
 
 
-# Set up diffusion-pipe-ui
-echo "Run: Set up diffusion-pipe-ui"
-CUDA_VERSION=$(nvcc --version | grep -oP "release \K[0-9]+\.[0-9]+")
-echo "CUDA: $CUDA_VERSION"
-
 cd /opt
 git clone --recurse-submodules https://github.com/tdrussell/diffusion-pipe.git
 cd diffusion-pipe

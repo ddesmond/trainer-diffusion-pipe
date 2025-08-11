@@ -2,10 +2,15 @@
 
 mkdir -p /opt/miniconda3
 
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3/miniconda.sh
-bash /opt/miniconda3/miniconda.sh -b -p /opt/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda.sh
+bash /opt/miniconda.sh -b -p -u /opt/miniconda3
 
 source /opt/miniconda3/bin/activate  #(activates the conda)
+
+echo "Run: Setup CONDA .bashrc PATH"
+echo 'export PATH="/opt/miniconda3/bin:$PATH"' >> ~/.bashrc
+
+source ~/.bashrc
 
 conda init --all
 
