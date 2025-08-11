@@ -45,6 +45,13 @@ echo "----------------------------------"
 echo "Run: copy configs"
 cp -r ./configs/ /opt/workspace/configs/
 
+# compile flash attention
+echo "----------------------------------"
+echo "Run: recompile flash attention"
+cd /opt/trainer-diffusion-pipe
+bash ./builder.sh
+
+
 echo "----------------------------------"
 echo "Run: Setup Gradio"
 cp /opt/trainer-diffusion-pipe/gradio_app.py /opt/diffusion-pipe/gradio_app.py
