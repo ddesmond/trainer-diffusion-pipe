@@ -75,34 +75,34 @@ git fetch origin && git reset --hard origin/main
 git submodule foreach --recursive git fetch origin
 git submodule foreach --recursive git reset --hard
 
-
-# Set appropriate PyTorch index URL
-if [[ "$CUDA_VERSION" == "12.8" ]]; then
-    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu128"
-elif [[ "$CUDA_VERSION" == "12.6" ]]; then
-    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu126"
-elif [[ "$CUDA_VERSION" == "12.5" ]]; then
-    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu125"
-elif [[ "$CUDA_VERSION" == "12.4" ]]; then
-    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu124"
-else
-    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu128"
-fi
-uv pip install torch torchvision torchaudio --index-url $TORCH_INDEX_URL --system
-
-wget -c https://huggingface.co/TheArtOfficialTrainer/container_whls/resolve/main/flash_attn-2.7.4.post1-cp312-cp312-linux_x86_64.whl
-uv pip install flash_attn-2.7.4.post1-cp312-cp312-linux_x86_64.whl --system
-
-sed -i '/^torch$/d' requirements.txt
-sed -i '/^torchaudio$/d' requirements.txt
-sed -i '/^torchvision$/d' requirements.txt
-sed -i '/^flash-attn==2.8.1$/d' requirements.txt
-
-uv pip install -r requirements.txt --system
-uv pip install gradio toml --system
-# Start Diffusion Pipe UI
-
-uv pip install packaging setuptools wheel --system
-uv pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128 --system
-uv pip install opencv-python pyyaml gdown triton comfy-cli PyOpenGL-accelerate sageattention --system
+#
+## Set appropriate PyTorch index URL
+#if [[ "$CUDA_VERSION" == "12.8" ]]; then
+#    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu128"
+#elif [[ "$CUDA_VERSION" == "12.6" ]]; then
+#    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu126"
+#elif [[ "$CUDA_VERSION" == "12.5" ]]; then
+#    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu125"
+#elif [[ "$CUDA_VERSION" == "12.4" ]]; then
+#    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu124"
+#else
+#    TORCH_INDEX_URL="https://download.pytorch.org/whl/cu128"
+#fi
+#uv pip install torch torchvision torchaudio --index-url $TORCH_INDEX_URL --system
+#
+#wget -c https://huggingface.co/TheArtOfficialTrainer/container_whls/resolve/main/flash_attn-2.7.4.post1-cp312-cp312-linux_x86_64.whl
+#uv pip install flash_attn-2.7.4.post1-cp312-cp312-linux_x86_64.whl --system
+#
+#sed -i '/^torch$/d' requirements.txt
+#sed -i '/^torchaudio$/d' requirements.txt
+#sed -i '/^torchvision$/d' requirements.txt
+#sed -i '/^flash-attn==2.8.1$/d' requirements.txt
+#
+#uv pip install -r requirements.txt --system
+#uv pip install gradio toml --system
+## Start Diffusion Pipe UI
+#
+#uv pip install packaging setuptools wheel --system
+#uv pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128 --system
+#uv pip install opencv-python pyyaml gdown triton comfy-cli PyOpenGL-accelerate sageattention --system
 
