@@ -9,5 +9,5 @@
 #NUM_CPUS=$(nproc)
 #MAX_JOBS=$NUM_CPUS python setup.py install
 
-uv pip https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.2/flash_attn-2.8.2+cu12torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl --system
+uv pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.2/flash_attn-2.8.2+cu12torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl --system
 # cleanup
