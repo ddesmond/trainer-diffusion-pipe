@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ref
+# https://github.com/tdrussell/diffusion-pipe/issues/335
 echo "Run: Get conda"
 mkdir -p /opt/miniconda3
 
