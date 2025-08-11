@@ -55,7 +55,7 @@ bash ./builder.sh
 echo "----------------------------------"
 echo "Run: Setup Gradio"
 cp /opt/trainer-diffusion-pipe/gradio_app.py /opt/diffusion-pipe/gradio_app.py
-cd /opt/diffusion-pipe
-
-# run gradio
-python3 gradio_app.py
+#cd /opt/diffusion-pipe
+#
+## run gradio
+#python3 gradio_app.py
