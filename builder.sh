@@ -1,14 +1,19 @@
 #!/bin/bash
 
+mkdir -p /opt/miniconda3
 
-## flash attention
-#cd /opt
-#git clone https://github.com/Dao-AILab/flash-attention.git
-#cd flash-attention
-#uv pip install triton==3.2.0 --system
-#NUM_CPUS=$(nproc)
-#MAX_JOBS=$NUM_CPUS python setup.py install
-#uv pip install torch==2.7 --system
-#uv pip install git+https://github.com/huggingface/transformers --system
-#uv pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.2/flash_attn-2.8.2+cu12torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl --system
-## cleanup
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3/miniconda.sh
+bash /opt/miniconda3/miniconda.sh -b -p /opt/miniconda3
+
+source /opt/miniconda3/bin/activate  #(activates the conda)
+
+conda init --all
+
+cd /opt/diffusion-pipe
+
+conda create -n diffusion-pipe python=3.12
+conda activate diffusion-pipe
+
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+
+pip install -r requirements.txt
