@@ -1392,7 +1392,7 @@ def get_model_types():
     configs = parse_model_configs()
     if not configs:
         print("Warning: No model configurations found. Using default model types.")
-        default_types = ["wan-1.3b", "Wan2.1-T2V-14B", "wan-i2v"]
+        default_types = ["Wan2.1-T2V-1.3B", "Wan2.1-T2V-14B", "Wan2.1-I2V-14B"]
         return sorted(default_types)
     return sorted(list(configs.keys()))
 
